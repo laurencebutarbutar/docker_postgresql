@@ -1,0 +1,1 @@
+INSERT INTO bank VALUES(1,'002','Bank Rakyat Indonesia','BRINIDJA');

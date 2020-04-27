@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  postgres_local:
+    # postgres container name
+    container_name: postgres_local_container
+    # postgres version
+    image: postgres:12.2
+    restart: always
+    environment:
+      # db name for postgres
+      POSTGRES_DB: 'postgres_local'
+      # User for postgres
+      POSTGRES_USER: 'postgres'
+      # Password for user postgre
+      POSTGRES_PASSWORD: 'postgres'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '5434:5432'
+    expose:
+      # Opens port 3306 on the container
+      - '5434'
+    volumes:
+      # Where initialization schema and data sql
+      - ./initdb:/docker-entrypoint-initdb.d/
